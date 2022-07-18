@@ -17,14 +17,14 @@
     <meta property="og:site_name" content="Soon9's Web studio">
     <meta property="og:title" content="Soon9's Web studio">
     <meta property="og:description" content="Welcome to Soon9's Web studio">
-    <meta property="og:image" content="img/visual2.jpg">
+    <meta property="og:image" content="/img/visual2.jpg">
     <meta property="og:url" content="http://www.soon9.co.kr">
 
     <meta property="twitter:card" content="summary">
     <meta property="twitter:site_name" content="Soon9's Web studio">
     <meta property="twitter:title" content="Soon9's Web studio">
     <meta property="twitter:description" content="Welcome to Soon9's Web studio">
-    <meta property="twitter:image" content="img/visual2.jpg">
+    <meta property="twitter:image" content="/img/visual2.jpg">
     <meta property="twitter:url" content="http://www.soon9.co.kr">
 
     <title>Hong Studio</title>

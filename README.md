@@ -148,3 +148,23 @@ public class HomeController {
 - 이미지는 절대경로로 처리
  + 상대경로 : src="img/logo.png" > ./img/logo.png  
  + 절대경로 : src="/img/logo.png" > 파일 위치를 옮겨도 경로 유지 
+
+### 1-7 테이블 생성하기
+```roomsql
+drop SEQUENCE seq_tbl_board;
+DROP TABLE tbl_board;
+
+CREATE SEQUENCE seq_tbl_board;
+CREATE TABLE tbl_board (
+    board_no NUMBER(10),
+    writer VARCHAR2(20) NOT NULL,
+    title VARCHAR2(200) NOT NULL,
+    content CLOB,
+    view_cnt NUMBER(10) DEFAULT 0,
+    reg_date DATE DEFAULT SYSDATE,
+    CONSTRAINT pk_tbl_board PRIMARY KEY (board_no)
+);
+
+```
+### 1-8 테이블에 매칭되는 도메인 클래스 만들기
+> com.project.web_prj.board.domain.Board
