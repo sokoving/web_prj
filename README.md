@@ -97,4 +97,54 @@ There was an unexpected error (type=Not Found, status=404).
 
 # 2. 웰컴 페이지 만들기
 ## 1. src.main.wabapp.views
-- index.jsp 파일 생성 후 vscode에서 작업 
+### 1-1 index.jsp 파일 생성 후 vscode에서 작업 
+ + vscode에서는 src 폴더를 루트 폴더로 열어서 작업
+### 1-2. jsp 에멧 설정하기
+- 왼쪽 아래 톱니바퀴 > 사용자 코드 조각 구성 > html.json 검색
+```
+	"korea jsp form" : {
+	   "scope": "html",
+	   "prefix": "!jsp",
+	   "body": [
+		  "<%@ page contentType=\"text/html; charset=UTF-8\" language=\"java\" %>",
+		  "<%@ taglib prefix=\"c\" uri=\"http://java.sun.com/jsp/jstl/core\"%>",
+		  "<!DOCTYPE html>",
+		  "<html lang=\"ko\">",
+		  "<head>",
+			 "<meta charset=\"UTF-8\">",
+			 "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">",
+			 "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			 
+ 
+			 "<title>$1</title>",
+		  "</head>",
+		  "<body>",
+		  "$2",
+		  "</body>",
+		  "</html>"
+	   ],
+	   "description": "jsp 자동완성 (한글페이지용)"
+	}
+```
+### 1-3 main.webapp.WEB-INF.views.index.jsp
+### 1-4 main.java.com.HomeController
+- home 요청 수행하는 컨트롤러
+```java
+@Controller
+@Log4j2
+public class HomeController {
+
+    @GetMapping("/")
+    public String home(){
+        log.info("welcome page!");
+        return "index";
+    }
+}
+```
+### 1-5 index.jsp
+- index.html 페이지 복붙
+### 1-6 resources.static
+- js, css, img 같은 정적 리소스는 스태틱에
+- 이미지는 절대경로로 처리
+ + 상대경로 : src="img/logo.png" > ./img/logo.png  
+ + 절대경로 : src="/img/logo.png" > 파일 위치를 옮겨도 경로 유지 
