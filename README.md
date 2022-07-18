@@ -208,3 +208,57 @@ public class BoardRepositoryImpl implements BoardRepository {
     }
 }
 ```
+### 1-9-3 BoardRepositoryImplTest
+- DB 연결 테스트하기
+
+### 1-10 BoardService
+```java
+@Service
+@RequiredArgsConstructor
+@Log4j2
+public class BoardService {
+    @Autowired
+    private final BoardRepository repository;}
+```
+
+### 1-11 BoardController
+```java
+@Controller
+@Log4j2
+@RequiredArgsConstructor
+@RequestMapping("/board")
+public class BoardController {
+    @Autowired
+    private final BoardService boardService;
+}
+```
+#### 1-11-1 컨트롤러 테스트하기
+ 1. 크롬 확장 프로그램 YARC (Yet Another Rest Client) 설치
+ 2. 톰캣 서버 켜기
+```
+URL: http://localhost:8183/board/write
+Payload:
+ {
+     "writer" : "kkk",
+     "title"  :  "hello hi~~",
+     "content" : "hello java spring~~~~"
+}
+```
+
+### 1-12 jsp 프래그먼트 파일 만들기
+- html 파일 조각내기
+ + views.include 폴더에 footer.jsp, header.jsp, static-head.jsp 만들기
+ + head 태그들은 static-head.jsp 폴더에. header는 header.jsp, footer는 footer.jsp에 잘라내기, 붙여넣기
+ + jsp 파일 맨 위줄에는
+```
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+```
+ + 잘라내고 남은 index.html에는 아래와 같이 넣어준다.
+```html
+<head>
+    <%@ includ file="includ/static-head.jsp" %>
+</head>
+<%@ includ file="includ/header.jsp" %>
+<%@ includ file="includ/footer.jsp" %>
+```
