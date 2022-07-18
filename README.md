@@ -167,4 +167,44 @@ CREATE TABLE tbl_board (
 
 ```
 ### 1-8 테이블에 매칭되는 도메인 클래스 만들기
+- 컬럼 하나에 매칭되는 필드 하나
+ + number의 자릿수 보고 int인지 long(Long)인지 결정
 > com.project.web_prj.board.domain.Board
+```java
+import lombok.*;
+import java.sql.Date;
+
+@Setter @Getter @ToString @EqualsAndHashCode
+@NoArgsConstructor @AllArgsConstructor
+public class Board {
+
+    private Long boardNo;
+    private String writer;
+    private String title;
+    private String content;
+    private Long viewCnt;
+    private Date regDate;
+}
+```
+
+### 1-9 레퍼지토리 만들기
+> com.project.web_prj.board.repository
+### 1-9-1 public interface BoardRepository
+- 뭘 입력해서 어떻게 리턴할 것인지 고려해서 파라미터와 리턴 타입 정하기
+### 1-9-2 BoardRepositoryImpl
+- 
+```java
+@Repository
+@Log4j2
+@RequiredArgsConstructor
+public class BoardRepositoryImpl implements BoardRepository {
+
+    private final JdbcTemplate template;
+
+    @Override
+    public boolean save(Board board) {
+        log.info("save process with jdbc - {}", board);
+        return false;
+    }
+}
+```
