@@ -63,4 +63,10 @@ public class BoardRepositoryImpl implements BoardRepository {
         ) == 1;
 
     }
+
+    @Override
+    public int getTotalCount() {
+        String sql = "select count(*) as cnt from tbl_board";
+         return template.queryForObject(sql, Integer.class);
+    }
 }

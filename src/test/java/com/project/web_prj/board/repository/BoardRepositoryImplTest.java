@@ -91,4 +91,11 @@ class BoardRepositoryImplTest {
         assertEquals("수정된 작성자", board.getWriter());
     }
 
+    @Test
+    @DisplayName("총 게시물의 수는 300개이다")
+    void getTotalCount(){
+        int totalCount = repository.getTotalCount();
+        assertEquals(totalCount, 300);
+    }
+
 }

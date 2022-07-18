@@ -21,4 +21,7 @@ public interface BoardRepository {
     // 게시글 수정
     boolean modify(Board board);
 
+    // 전체 게시물 수 조회
+    int getTotalCount();
+
 }
