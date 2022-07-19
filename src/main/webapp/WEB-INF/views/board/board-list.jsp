@@ -12,6 +12,13 @@
             margin: 0 auto;
         }
 
+        .inner-board-list {
+            border: 1px solid #000;
+
+            transform: translateY(120px);
+
+        }
+
         .board-list .articles {
             margin: 250px auto 100px;
             border-collapse: collapse;
@@ -60,6 +67,14 @@
         <%@ include file="../include/header.jsp" %>
 
         <div class="board-list">
+            <div class="inner-board-list">
+            <!-- 게시글 줄 수 입력 버튼 -->
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                <button type="button" class="btn btn-outline-primary">10줄</button>
+                <button type="button" class="btn btn-outline-primary">20줄</button>
+                <button type="button" class="btn btn-outline-primary">30줄</button>
+            </div>
+            <!-- 게시글 테이블 영역 -->
             <table class="table table-dark table-striped table-hover articles">
                 <tr>
                     <th>번호</th>
@@ -85,19 +100,24 @@
 
                 <!-- 페이지 버튼 영역 -->
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination pagination-lg pagination-custom">
+                    <ul class="pagination pagination-lg pagination-custom" id="page-btn-group">
+
                         <c:if test="${pm.prev}">
-                            <li class="page-item"><a class="page-link" href="/board/list?pageNum=${pm.beginPage - 1}">prev</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="/board/list?pageNum=${pm.beginPage - 1}">prev</a></li>
                         </c:if>
+
                         <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
                             <li class="page-item">
-                                <a class="page-link" href="/board/list?pageNum=${n}">${n}</a>
+                                <a class="page-link page-num" href="/board/list?pageNum=${n}">${n}</a>
                             </li>
                         </c:forEach>
 
                         <c:if test="${pm.next}">
-                            <li class="page-item"><a class="page-link" href="/board/list?pageNum=${pm.endPage + 1}">next</a></li>
+                            <li class="page-item"><a class="page-link"
+                                    href="/board/list?pageNum=${pm.endPage + 1}">next</a></li>
                         </c:if>
+
                     </ul>
                 </nav>
 
@@ -107,6 +127,7 @@
                 </div>
             </div>
         </div>
+        </div>
 
 
         <%@ include file="../include/footer.jsp" %>
@@ -114,6 +135,18 @@
     </div>
 
     <script>
+        // 현재 위치한 페이지 번호를 가진 li에 active 클래스 부여하기
+        const $pageBtn = document.getElementById('page-btn-group');
+        const pageNum = '${pm.page.pageNum}';
+
+        for (let $li of [...$pageBtn.children]) {
+            if ($li.textContent.trim() == pageNum) {
+                $li.classList.add('active')
+            }
+        }
+
+
+        // 새 글 등록 성공 메세지 띄우기
         const msg = '${msg}';
         console.log('msg: ', msg);
         if (msg === 'reg-success') {
