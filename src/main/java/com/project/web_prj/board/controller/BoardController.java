@@ -32,7 +32,7 @@ public class BoardController {
     public String list(Model model){
         log.info("controller request /board/list GET!");
         List<Board> boardList = boardService.findAllService();
-        log.info("return data - {}", boardList);
+        log.debug("return data - {}", boardList);
 
         model.addAttribute("bList", boardList);
         return "board/board-list";
@@ -61,6 +61,30 @@ public class BoardController {
         log.info("controller request /board/write POST! - {}", board);
         boolean flag = boardService.saveService(board);
         return flag ? "redirect:/board/list" : "redirect:/";
+    }
+
+    // 게시물 삭제 요청
+    @GetMapping("/delete")
+    public String delete(Long boardNo){
+        log.info("controller request /board/delete GET! - bno {}", boardNo);
+        return boardService.removeService(boardNo) ?"redirect:/board/list" : "redirect:/" ;
+    }
+
+    // 게시물 수정 화면 요청
+    @GetMapping("/modify")
+    public String modify(Long boardNo, Model model){
+        log.info("controller request /board/modify GET!");
+        Board modiBoard = boardService.findOneService(boardNo);
+        model.addAttribute("board", modiBoard);
+        return "board/board-modify";
+    }
+
+    // 수정 처리 요청
+    @PostMapping("/modify")
+    public String modify(Board board){
+        log.info("controller request /board/modify POST! - bno {}", board);
+        boolean flag = boardService.modifyService(board);
+        return flag? "redirect:/board/content/"+board.getBoardNo() : "redirect:/";
     }
 
 
