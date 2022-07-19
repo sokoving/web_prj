@@ -69,4 +69,10 @@ public class BoardRepositoryImpl implements BoardRepository {
         String sql = "select count(*) as cnt from tbl_board";
          return template.queryForObject(sql, Integer.class);
     }
+
+    @Override
+    public void upViewCount(Long boardNo) {
+        String sql = "update tbl_board set view_cnt = view_cnt+1 where board_no = ? ";
+        template.update(sql, boardNo);
+    }
 }

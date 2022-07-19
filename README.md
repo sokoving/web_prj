@@ -8,8 +8,60 @@
 
 # gradle 설정을 인텔리제이로 바꾸면 자바가 17버전으로 바뀌어서 서버 실행 안 됨...
 
+# db에서 받은 데이터를 포매팅해 보여주기
+- 도메인에 커스텀 데이터 필드를 만들어서 세팅하고 값 받아오기
+``` class Board
+    private String shortTitle; // 줄임 제목
+    private String prettierDate; // 변경된 날짜 포맷 문자열
+```
+
+
+
 # 수정 완료하고 다시 페이지로 리다이렉트하기
 > return flag? "redirect:/board/content/"+board.getBoardNo() : "redirect:/";
+## 리다이렉트할 때 정보 보내기
+- RedirectAttributes ra
+- ra.addFlashAttribute("msg", "reg-success");
+``` board-list.jsp
+        const msg = '${msg}'
+        console.log('msg: ', msg);
+        if (msg === 'reg-success') alert('게시물이 정상 등록되었습니다.')
+```
+## 포워딩 할 때 정보 보내기
+ - Model model
+ - mode.addAttribute("msg", "reg-success");
+
+
+
+
+# @Transactional
+- 메서드를 트랜젝션 단위로 묶어 실행에 실패하면 이전 코드 롤백
+
+# 조회수 무제한 올라가는 걸 막는 방법
+- 한 브라우저당 시간당 한 번만 올라가게 한다
+## 프로토콜의 무상태성
+- http와 서버는 어떤 상태인 걸 기억하지 못 한다
+ + 서버가 쿠키를 클라이언트에게 건네주고 그 쿠키를 보고 상태를 확인한다
+## 쿠키 주고 받기
+```
+    private void makeViewCount(Long boardNo, HttpServletResponse response, HttpServletRequest request) {
+        // 쿠키 조회 : HttpServletRequest request 필요
+            // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
+        if(foundCookie == null){
+            repository.upViewCount(boardNo);
+
+            // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
+            Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));
+            // 2. 쿠키 수명 설정(초) 초에 곱셈 수식으로 표현 가능 1시간 = 60*60
+            cookie.setMaxAge(60);
+            // 3. 쿠키 작동 범위
+            cookie.setPath("/board/content");
+            // 4. 클라이언트에 쿠키 전송 : HttpServletResponse response 필요
+            response.addCookie(cookie);
+        }
+    }
+```
 ----------------------------------------
 
 # 1. 프로젝트 시작, 스프링 설정 종합편

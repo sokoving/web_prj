@@ -6,7 +6,10 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -40,11 +43,11 @@ public class BoardController {
 
     // 게시물 상세 조회 요청
     @GetMapping("/content")
-    public String content(Long boardNo, Model model){
+    public String content(Long boardNo, Model model, HttpServletResponse response, HttpServletRequest request){
         log.info("controller request /board/content GET! - {}", boardNo);
-        Board board = boardService.findOneService(boardNo);
-        model.addAttribute("b", board);
+        Board board = boardService.findOneService(boardNo, response, request);
         log.info("return data - {}", board);
+        model.addAttribute("b", board);
         return "board/board-detail";
     }
 
@@ -57,9 +60,14 @@ public class BoardController {
 
     // 게시물 등록 요청
     @PostMapping("/write")
-    public String write(Board board) {
+    public String write(Board board, RedirectAttributes ra) {
         log.info("controller request /board/write POST! - {}", board);
         boolean flag = boardService.saveService(board);
+        // 게시물 등록에 성공하면 클라이언트에 성공 메세지 전송
+        if(flag){
+            ra.addFlashAttribute("msg", "reg-success");
+        }
+
         return flag ? "redirect:/board/list" : "redirect:/";
     }
 
@@ -72,9 +80,9 @@ public class BoardController {
 
     // 게시물 수정 화면 요청
     @GetMapping("/modify")
-    public String modify(Long boardNo, Model model){
+    public String modify(Long boardNo, Model model, HttpServletResponse response, HttpServletRequest request){
         log.info("controller request /board/modify GET!");
-        Board modiBoard = boardService.findOneService(boardNo);
+        Board modiBoard = boardService.findOneService(boardNo, response, request);
         model.addAttribute("board", modiBoard);
         return "board/board-modify";
     }
