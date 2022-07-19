@@ -20,6 +20,14 @@
     private String prettierDate; // 변경된 날짜 포맷 문자열
 ```
 
+# 부트스트랩 사용하기
+1. 이미 쓰고 있으면 버전 확인하기
+- static-head.jsp에 bootstrap cdn에 있음
+- 버전 다르면 적용 안 됨
+2. 새로 쓸 거면 head에 cnd 복붙
+3. 쓸 디자인 선택하고 태그 복붙
+4. 디자인을 커스텀하려면 !impotant 붙이는 게 좋음
+
 # 리스트 페이징
 - 게시글 일부분만 보여주기
 ## 페이징 쿼리
@@ -38,6 +46,7 @@ FROM (SELECT ROWNUM rn, v_board.*
 WHERE rn BETWEEN 11 AND 20;
 ```
 ## class Page
+## 목록 처리하는 메서드들에 page 파라메터를 받고 적용하게 만들기 
 
 
 

@@ -19,14 +19,37 @@
             border-radius: 10px;
         }
 
-        .board-list .btn-write {
-            /* background: orange; */
-            text-align: right;
-            position: relative;
-            top: -70px;
+        header {
+            background: #222;
+            border-bottom: 1px solid #2c2c2c;
         }
 
+        /* pagination style */
+        .bottom-section {
+            margin-top: -50px;
+            margin-bottom: 100px;
+            display: flex;
+        }
 
+        .bottom-section nav {
+            flex: 9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bottom-section .btn-write {
+            flex: 1;
+        }
+
+        .pagination-custom a {
+            color: #444 !important;
+        }
+
+        .pagination-custom li.active a,
+        .pagination-custom li:hover a {
+            background: #333 !important;
+            color: #fff !important;
+        }
     </style>
 </head>
 
@@ -47,7 +70,7 @@
                 </tr>
 
                 <c:forEach var="b" items="${bList}">
-                    <tr data-board-no="${b.boardNo}">
+                    <tr>
                         <td>${b.boardNo}</td>
                         <td>${b.writer}</td>
                         <td title="${b.title}">${b.shortTitle}</td>
@@ -57,8 +80,31 @@
                 </c:forEach>
             </table>
 
-            <div class="btn-write">
-                <a class="btn btn-outline-danger btn-lg" href="/board/write">글쓰기</a>
+            <!-- 게시글 목록 하단 영역 -->
+            <div class="bottom-section">
+
+                <!-- 페이지 버튼 영역 -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-lg pagination-custom">
+                        <c:if test="${pm.prev}">
+                            <li class="page-item"><a class="page-link" href="/board/list?pageNum=${pm.beginPage - 1}">prev</a></li>
+                        </c:if>
+                        <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
+                            <li class="page-item">
+                                <a class="page-link" href="/board/list?pageNum=${n}">${n}</a>
+                            </li>
+                        </c:forEach>
+
+                        <c:if test="${pm.next}">
+                            <li class="page-item"><a class="page-link" href="/board/list?pageNum=${pm.endPage + 1}">next</a></li>
+                        </c:if>
+                    </ul>
+                </nav>
+
+                <!-- 글쓰기 버튼 영역 -->
+                <div class="btn-write">
+                    <a class="btn btn-outline-danger btn-lg" href="/board/write">글쓰기</a>
+                </div>
             </div>
         </div>
 
@@ -68,27 +114,22 @@
     </div>
 
     <script>
-        
-        const msg = '${msg}'
+        const msg = '${msg}';
         console.log('msg: ', msg);
-
-        if (msg === 'reg-success'){
-            alert('게시물이 정상 등록되었습니다. ')
+        if (msg === 'reg-success') {
+            alert('게시물이 정상 등록되었습니다.');
         }
-
         //상세보기 요청 이벤트
         const $table = document.querySelector(".articles");
         $table.addEventListener('click', e => {
+
+
             if (!e.target.matches('.articles td')) return;
-
-            // console.log('tr 클릭됨! - ', e.target);
-
+            console.log('tr 클릭됨! - ', e.target);
             let bn = e.target.parentElement.firstElementChild.textContent;
-            // console.log('글번호: ' + bn);
-
-            location.href = '/board/content?boardNo=' + bn;
+            console.log('글번호: ' + bn);
+            location.href = '/board/content/' + bn;
         });
-
     </script>
 
 </body>

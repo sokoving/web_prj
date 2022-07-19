@@ -2,8 +2,10 @@ package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.common.paging.Page;
+import com.project.web_prj.common.paging.PageMaker;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Log4j2
@@ -35,15 +38,20 @@ public class BoardController {
     @GetMapping("/list")
     public String list(Model model, Page page){
         log.info("controller request /board/list GET!");
-        List<Board> boardList = boardService.findAllService(page);
-        log.debug("return data - {}", boardList);
+        Map<String, Object> boardMap = boardService.findAllService(page);
+        log.debug("return data - {}", boardMap);
 
-        model.addAttribute("bList", boardList);
+        // 페이지 정보 생성
+        PageMaker pm = new PageMaker(page, (Integer) boardMap.get("tc"));
+
+        model.addAttribute("bList", boardMap.get("bList"));
+        model.addAttribute("pm", pm);
+
         return "board/board-list";
     }
 
     // 게시물 상세 조회 요청
-    @GetMapping("/content")
+    @GetMapping("/content/{boardNo}")
     public String content(Long boardNo, Model model, HttpServletResponse response, HttpServletRequest request){
         log.info("controller request /board/content GET! - {}", boardNo);
         Board board = boardService.findOneService(boardNo, response, request);

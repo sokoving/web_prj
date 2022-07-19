@@ -16,7 +16,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -32,15 +34,32 @@ public class BoardService {
         return repository.save(board);
     }
 
-    // 게시물 목록 전체 조회 요청 중간 처리
-    public List<Board> findAllService(Page page) {
+    // 게시물 전체 조회 요청 중간 처리
+    public List<Board> findAllService() {
         log.info("findAll service start");
-        List<Board> boardList = repository.findAll(page);
+        List<Board> boardList = repository.findAll();
 
         // 목록 중간 데이터처리
         processConverting(boardList);
 
         return boardList;
+    }
+
+
+    // 게시물 전체 조회 요청 중간 처리 with paging
+    public Map<String, Object> findAllService(Page page) {
+        log.info("findAll service start");
+
+        Map<String, Object> findDataMap = new HashMap<>();
+        List<Board> boardList = repository.findAll(page);
+
+        // 목록 중간 데이터처리
+        processConverting(boardList);
+
+        findDataMap.put("bList", boardList);
+        findDataMap.put("tc", repository.getTotalCount());
+
+        return findDataMap;
     }
 
     private void processConverting(List<Board> boardList) {

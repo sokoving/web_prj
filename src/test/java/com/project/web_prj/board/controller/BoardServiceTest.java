@@ -1,6 +1,7 @@
 package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
+import com.project.web_prj.common.paging.Page;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
