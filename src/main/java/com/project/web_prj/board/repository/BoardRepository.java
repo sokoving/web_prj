@@ -11,7 +11,6 @@ public interface BoardRepository {
     boolean save(Board board);
 
     // 게시글 전체 조회
-    List<Board> findAll();
     List<Board> findAll(Page page);
 
 

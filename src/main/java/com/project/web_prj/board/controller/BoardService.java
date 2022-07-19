@@ -2,6 +2,7 @@ package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.board.repository.BoardRepository;
+import com.project.web_prj.common.paging.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +32,10 @@ public class BoardService {
         return repository.save(board);
     }
 
-    // 게시물 전체 조회 요청 중간 처리
-    public List<Board> findAllService() {
+    // 게시물 목록 전체 조회 요청 중간 처리
+    public List<Board> findAllService(Page page) {
         log.info("findAll service start");
-        List<Board> boardList = repository.findAll();
+        List<Board> boardList = repository.findAll(page);
 
         // 목록 중간 데이터처리
         processConverting(boardList);

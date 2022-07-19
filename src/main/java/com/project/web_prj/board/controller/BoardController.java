@@ -1,6 +1,7 @@
 package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
+import com.project.web_prj.common.paging.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
@@ -30,11 +31,11 @@ public class BoardController {
      * 게시글 수정요청: /board/modify: POST
      */
 
-    //게시물 목록요청
+    // 게시물 목록 요청
     @GetMapping("/list")
-    public String list(Model model){
+    public String list(Model model, Page page){
         log.info("controller request /board/list GET!");
-        List<Board> boardList = boardService.findAllService();
+        List<Board> boardList = boardService.findAllService(page);
         log.debug("return data - {}", boardList);
 
         model.addAttribute("bList", boardList);
