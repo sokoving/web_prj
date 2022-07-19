@@ -1,6 +1,8 @@
 package com.project.web_prj.board.repository;
 
 import com.project.web_prj.board.domain.Board;
+import com.project.web_prj.common.paging.Page;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@Log4j2
 class BoardRepositoryImplTest {
 
     @Autowired
@@ -96,6 +99,16 @@ class BoardRepositoryImplTest {
     void getTotalCount(){
         int totalCount = repository.getTotalCount();
         assertEquals(totalCount, 300);
+    }
+
+    @Test
+    @DisplayName("원하는 페이지수의 게시물양에 따라 게시글 목록을 조회해야 한다")
+    void pagingTest(){
+        Page page = new Page(2, 10);
+        List<Board> all = repository.findAll(page);
+        for (Board b : all) {
+            System.out.println(b);
+        }
     }
 
 }

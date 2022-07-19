@@ -1,3 +1,6 @@
+# 리팩토링할 때
+- 이전 메서드는 남겨두고 리팩토링하는 메서드를 오버라이딩해서 작업하기
+
 # post 요청은 폼에서
 - post 요청은 url에 파라미터 못 씀
 - 사용자가 입력하지 않는 파라미터를 컨트롤러에 보내려면 input hidden 사용
@@ -8,12 +11,33 @@
 
 # gradle 설정을 인텔리제이로 바꾸면 자바가 17버전으로 바뀌어서 서버 실행 안 됨...
 
+
+
 # db에서 받은 데이터를 포매팅해 보여주기
 - 도메인에 커스텀 데이터 필드를 만들어서 세팅하고 값 받아오기
 ``` class Board
     private String shortTitle; // 줄임 제목
     private String prettierDate; // 변경된 날짜 포맷 문자열
 ```
+
+# 리스트 페이징
+- 게시글 일부분만 보여주기
+## 페이징 쿼리
+- ROWNUM : 행 번호(board_no와 다르다)
+ 2. 데이터를 정렬
+ 3. 행에 순번 붙이기
+ 4. 원하는 범위로 제한하기
+```roomsql
+SELECT  *
+FROM (SELECT ROWNUM rn, v_board.*
+    FROM (
+        SELECT *
+        FROM tbl_board
+        ORDER BY board_no DESC
+        ) v_board)
+WHERE rn BETWEEN 11 AND 20;
+```
+## class Page
 
 
 

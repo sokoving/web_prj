@@ -1,6 +1,7 @@
 package com.project.web_prj.board.repository;
 
 import com.project.web_prj.board.domain.Board;
+import com.project.web_prj.common.paging.Page;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public interface BoardRepository {
 
     // 게시글 전체 조회
     List<Board> findAll();
+    List<Board> findAll(Page page);
+
 
     // 게시글 상세 조회
     Board findOne(Long boardNo);
