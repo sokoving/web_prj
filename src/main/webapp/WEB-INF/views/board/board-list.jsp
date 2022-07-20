@@ -114,19 +114,19 @@
 
                         <c:if test="${pm.prev}">
                             <li class="page-item"><a class="page-link"
-                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${pm.search.amount}&type=${pm.search.type}">
+                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${pm.search.amount}">
                                     prev</a></li>
                         </c:if>
 
                         <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
                             <li data-page-num="${n}" class="page-item">
-                                <a class="page-link" href="/board/list?pageNum=${n}&amount=${pm.page.amount}">${n}</a>
+                                <a class="page-link" href="/board/list?pageNum=${n}&amount=${pm.search.amount}">${n}</a>
                             </li>
                         </c:forEach>
 
                         <c:if test="${pm.next}">
                             <li class="page-item"><a class="page-link"
-                                    href="/board/list?pageNum=${pm.endPage + 1}&amount=${pm.page.amount}">next</a></li>
+                                    href="/board/list?pageNum=${pm.endPage + 1}&amount=${pm.search.amount}">next</a></li>
                         </c:if>
 
                     </ul>
@@ -169,7 +169,7 @@
                 let bn = e.target.parentElement.firstElementChild.textContent;
                 console.log('글번호: ' + bn);
 
-                location.href = '/board/content/' + bn + "?pageNum=${pm.page.pageNum}&amount=${pm.page.amount}";
+                location.href = '/board/content/' + bn + "?pageNum=${pm.search.pageNum}&amount=${pm.search.amount}";
             });
         }
 
@@ -177,7 +177,7 @@
         function appendPageActive() {
 
             // 현재 내가 보고 있는 페이지 넘버
-            const curPageNum = '${pm.page.pageNum}';
+            const curPageNum = '${pm.search.pageNum}';
             // console.log("현재페이지: ", curPageNum);
 
             // 페이지 li태그들을 전부 확인해서 
