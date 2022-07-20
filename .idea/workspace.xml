@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="전부 커밋">
+    <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0720 일단 종료">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/repository/BoardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/project/web_prj/board/repository/BoardMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,16 +80,16 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/YEOWOON/web_prj&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "C:/YEOWOON/web_prj",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.web_prj.board.controller" />
@@ -101,26 +105,16 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.project.web_prj.board.repository" />
       <recent name="com.project.web_prj.common.paging" />
       <recent name="com.project.web_prj.board.controller" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.project.web_prj.board.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.web_prj [clean]">
-    <configuration name="WebPrjApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.project.web_prj.WebPrjApplication" />
-      <module name="web_prj.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.project.web_prj.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BoardRepositoryImplTest.pagingTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.BoardMapperTest.findOneTest">
+    <configuration name="BoardMapperTest.findAllTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -133,7 +127,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardRepositoryImplTest.pagingTest&quot;" />
+            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.findAllTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -143,7 +137,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PageMakerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardMapperTest.findOneTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -156,7 +150,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.common.paging.PageMakerTest&quot;" />
+            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.findOneTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -166,7 +160,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="PageMakerTest.pageInfoTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardMapperTest.removeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -179,7 +173,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.common.paging.PageMakerTest.pageInfoTest&quot;" />
+            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.removeTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="BoardMapperTest.saveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.saveTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -212,11 +229,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.BoardMapperTest.findOneTest" />
+        <item itemvalue="Gradle.BoardMapperTest.findAllTest" />
+        <item itemvalue="Gradle.BoardMapperTest.removeTest" />
+        <item itemvalue="Gradle.BoardMapperTest.saveTest" />
         <item itemvalue="Gradle.web_prj [clean]" />
-        <item itemvalue="Gradle.PageMakerTest.pageInfoTest" />
-        <item itemvalue="Gradle.PageMakerTest" />
-        <item itemvalue="Gradle.BoardRepositoryImplTest.pagingTest" />
-        <item itemvalue="애플리케이션.WebPrjApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -320,7 +337,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658222376058</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="0720 파라미터 묻히기">
+      <created>1658284794410</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1658284794410</updated>
+    </task>
+    <task id="LOCAL-00015" summary="0720 일단 종료">
+      <created>1658284915432</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1658284915432</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -348,6 +379,8 @@
     <MESSAGE value="0720 페이지 정보 넘기기" />
     <MESSAGE value="0718 줄 선택 버튼 추가중" />
     <MESSAGE value="전부 커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="전부 커밋" />
+    <MESSAGE value="0720 파라미터 묻히기" />
+    <MESSAGE value="0720 일단 종료" />
+    <option name="LAST_COMMIT_MESSAGE" value="0720 일단 종료" />
   </component>
 </project>
