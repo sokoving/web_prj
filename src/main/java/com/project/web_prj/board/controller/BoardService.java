@@ -3,6 +3,7 @@ package com.project.web_prj.board.controller;
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.board.repository.BoardMapper;
 import com.project.web_prj.common.paging.Page;
+import com.project.web_prj.common.search.Search;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,24 +49,8 @@ public class BoardService {
     }
 */
 
-    /*
+/*
     // 게시물 전체 조회 요청 중간 처리 with paging
-    public Map<String, Object> findAllService(Page page) {
-        log.info("findAll service start");
-
-        Map<String, Object> findDataMap = new HashMap<>();
-        List<Board> boardList = repository.findAll(page);
-
-        // 목록 중간 데이터처리
-        processConverting(boardList);
-
-        findDataMap.put("bList", boardList);
-        findDataMap.put("tc", repository.getTotalCount());
-
-        return findDataMap;
-    }*/
-
-    // 게시물 전체 조회 요청 중간 처리 with paging, amount cookie
     public Map<String, Object> findAllService(Page page) {
         log.info("findAll service start");
 
@@ -77,6 +62,24 @@ public class BoardService {
 
         findDataMap.put("bList", boardList);
         findDataMap.put("tc", mapper.getTotalCount());
+
+        return findDataMap;
+    }
+*/
+
+
+    // 게시물 전체 조회 요청 중간 처리 with paging, search
+    public Map<String, Object> findAllService(Search search) {
+        log.info("findAll service start");
+
+        Map<String, Object> findDataMap = new HashMap<>();
+        List<Board> boardList = mapper.findAll2(search);
+
+        // 목록 중간 데이터처리
+        processConverting(boardList);
+
+        findDataMap.put("bList", boardList);
+        findDataMap.put("tc", mapper.getTotalCount(search));
 
         return findDataMap;
     }

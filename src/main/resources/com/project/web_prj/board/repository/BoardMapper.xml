@@ -52,11 +52,9 @@
     </resultMap>
 
 
-    <!--  동적 SQL 작성법 : 학생 전체 조회  -->
-    <!--  동적 SQL 작성법  -->
     <select id="findAll" resultMap="boardMap">
         SELECT  *
-        FROM (SELECT ROWNUM rn, v_board.* 
+        FROM (SELECT ROWNUM rn, v_board.*
               FROM (
                     SELECT *
                     FROM tbl_board
@@ -66,6 +64,26 @@
                  AND #{pageNum} * #{amount}
     </select>
 
+    <select id="findAll2" resultMap="boardMap">
+        SELECT  *
+        FROM (
+                SELECT ROWNUM rn, v_board.*
+                FROM (
+                        SELECT *
+                        FROM tbl_board
+        <if test="type == 'title'">WHERE title LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'writer'">WHERE writer LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'content'">WHERE content LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'tc'">
+                                WHERE title LIKE '%' || #{keyword} || '%'
+                                OR content LIKE '%' || #{keyword} || '%'
+        </if>
+                        ORDER BY board_no DESC
+                        ) v_board
+            )
+        WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND (#{pageNum} * #{amount})
+    </select>
+
     <select id="findOne" resultMap="boardMap">
         SELECT * FROM tbl_board
         WHERE board_no = #{boardNo}
@@ -73,7 +91,18 @@
 
     <select id="getTotalCount" resultType="int">
         SELECT COUNT(*)
-        FROM tbl_board
+        FROM (
+            SELECT *
+            FROM tbl_board
+            <if test="type == 'title'">WHERE title LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'writer'">WHERE writer LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'content'">WHERE content LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'tc'">
+                WHERE title LIKE '%' || #{keyword} || '%'
+                OR content LIKE '%' || #{keyword} || '%'
+            </if>
+            ORDER BY board_no DESC
+        )
     </select>
 
     <update id="upViewCount">

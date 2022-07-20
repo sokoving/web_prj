@@ -114,7 +114,8 @@
 
                         <c:if test="${pm.prev}">
                             <li class="page-item"><a class="page-link"
-                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${pm.page.amount}">prev</a></li>
+                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${pm.search.amount}&type=${pm.search.type}">
+                                    prev</a></li>
                         </c:if>
 
                         <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">

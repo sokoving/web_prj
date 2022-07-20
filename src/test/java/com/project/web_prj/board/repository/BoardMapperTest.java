@@ -2,6 +2,7 @@ package com.project.web_prj.board.repository;
 
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.common.paging.Page;
+import com.project.web_prj.common.search.Search;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,22 @@ class BoardMapperTest {
     BoardMapper mapper;
 
     @Test
+    @DisplayName("제목으로 검색된 목록을 조회해야 한다")
+    void serachByTitleTest(){
+        Search search = new Search(new Page(1, 10), "writer", "1");
+        List<Board> all2 = mapper.findAll2(search);
+        for (Board board : all2) {
+            System.out.println(board);
+        }
+    }
+
+    @Test
     @DisplayName("db에 게시글이 등록돼야 한다")
     void saveTest(){
         Board board = new Board();
-        board.setWriter("mWriter");
-        board.setTitle("mTitle");
-        board.setContent("mContent");
+        board.setWriter("ㅎㅎ");
+        board.setTitle("ㅎㅎㅎ");
+        board.setContent("ㅋㅋㅋㅋㅋ");
         boolean flag = mapper.save(board);
         assertTrue(flag);
     }

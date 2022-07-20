@@ -17,10 +17,10 @@ class PageMakerTest {
     @Test
     void pageInfoTest() {
 
-        int totalCount = repository.getTotalCount();
+/*        int totalCount = repository.getTotalCount();
         PageMaker pm = new PageMaker(new Page(7, 10), totalCount);
 
-        System.out.println(pm);
+        System.out.println(pm);*/
 
 //        assertEquals(40, pm.getEndPage());
 //        assertEquals(31, pm.getBeginPage());

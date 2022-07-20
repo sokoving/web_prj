@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0720 일단 종료">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/repository/BoardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/project/web_prj/board/repository/BoardMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" afterDir="false" />
+    <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0720 boardMapper search 전">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -16,7 +15,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/repository/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/repository/BoardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/paging/PageMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/paging/PageMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/search/Search.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/search/Search.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/project/web_prj/board/repository/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/project/web_prj/board/repository/BoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/web_prj/common/paging/PageMakerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/common/paging/PageMakerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +71,8 @@
       <list>
         <option value="Interface" />
         <option value="AnnotationType" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -113,29 +120,19 @@
       <recent name="com.project.web_prj.board.repository" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.BoardMapperTest.findOneTest">
-    <configuration name="BoardMapperTest.findAllTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.findAllTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
+  <component name="RunManager" selected="Gradle.BoardMapperTest.serachByTitleTest">
+    <configuration name="WebPrjApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.project.web_prj.WebPrjApplication" />
+      <module name="web_prj.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.project.web_prj.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="BoardMapperTest.findOneTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -206,34 +203,36 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="web_prj [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="BoardMapperTest.serachByTitleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="clean" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.serachByTitleTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BoardMapperTest.findOneTest" />
-        <item itemvalue="Gradle.BoardMapperTest.findAllTest" />
-        <item itemvalue="Gradle.BoardMapperTest.removeTest" />
+        <item itemvalue="Gradle.BoardMapperTest.serachByTitleTest" />
         <item itemvalue="Gradle.BoardMapperTest.saveTest" />
-        <item itemvalue="Gradle.web_prj [clean]" />
+        <item itemvalue="애플리케이션.WebPrjApplication" />
+        <item itemvalue="Gradle.BoardMapperTest.removeTest" />
+        <item itemvalue="Gradle.BoardMapperTest.findOneTest" />
       </list>
     </recent_temporary>
   </component>
@@ -351,7 +350,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658284915432</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="0720 boardMapper">
+      <created>1658301961868</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1658301961868</updated>
+    </task>
+    <task id="LOCAL-00017" summary="0720 boardMapper search 전">
+      <created>1658303573698</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1658303573698</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,6 +394,8 @@
     <MESSAGE value="전부 커밋" />
     <MESSAGE value="0720 파라미터 묻히기" />
     <MESSAGE value="0720 일단 종료" />
-    <option name="LAST_COMMIT_MESSAGE" value="0720 일단 종료" />
+    <MESSAGE value="0720 boardMapper" />
+    <MESSAGE value="0720 boardMapper search 전" />
+    <option name="LAST_COMMIT_MESSAGE" value="0720 boardMapper search 전" />
   </component>
 </project>

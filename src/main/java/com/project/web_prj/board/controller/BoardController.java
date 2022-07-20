@@ -3,6 +3,7 @@ package com.project.web_prj.board.controller;
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.common.paging.Page;
 import com.project.web_prj.common.paging.PageMaker;
+import com.project.web_prj.common.search.Search;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.relational.core.sql.In;
@@ -36,14 +37,17 @@ public class BoardController {
 
     // 게시물 목록 요청
     @GetMapping("/list")
-    public String list(Model model, Page page){
-        log.info("controller request /board/list GET!");
-        Map<String, Object> boardMap = boardService.findAllService(page);
+    public String list(Model model, Search search){
+        log.info("controller request /board/list GET! - search: {}", search);
+
+        Map<String, Object> boardMap = boardService.findAllService(search);
         log.debug("return data - {}", boardMap);
-        log.info("controller /list?amount = {}", page.getAmount());
 
         // 페이지 정보 생성
-        PageMaker pm = new PageMaker(page, (Integer) boardMap.get("tc"));
+        PageMaker pm = new PageMaker(
+                new Search(search.getPageNum(), search.getAmount(), search.getType(), search.getKeyword())
+                , (Integer) boardMap.get("tc"));
+        log.info("pmmmm : {}", pm);
 
 
         model.addAttribute("bList", boardMap.get("bList"));
