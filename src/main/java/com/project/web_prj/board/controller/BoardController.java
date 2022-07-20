@@ -36,9 +36,9 @@ public class BoardController {
 
     // 게시물 목록 요청
     @GetMapping("/list")
-    public String list(Model model, Page page, HttpServletRequest request,  HttpServletResponse response){
+    public String list(Model model, Page page){
         log.info("controller request /board/list GET!");
-        Map<String, Object> boardMap = boardService.findAllService(page, request, response);
+        Map<String, Object> boardMap = boardService.findAllService(page);
         log.debug("return data - {}", boardMap);
         log.info("controller /list?amount = {}", page.getAmount());
 

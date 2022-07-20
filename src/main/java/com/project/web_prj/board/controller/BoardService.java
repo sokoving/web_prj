@@ -64,7 +64,7 @@ public class BoardService {
     }*/
 
     // 게시물 전체 조회 요청 중간 처리 with paging, amount cookie
-    public Map<String, Object> findAllService(Page page, HttpServletRequest request, HttpServletResponse response) {
+    public Map<String, Object> findAllService(Page page) {
         log.info("findAll service start");
 
         Map<String, Object> findDataMap = new HashMap<>();
@@ -72,7 +72,6 @@ public class BoardService {
 
         // 목록 중간 데이터처리
         processConverting(boardList);
-        setAmount(page, request, response);
 
         findDataMap.put("bList", boardList);
         findDataMap.put("tc", repository.getTotalCount());
@@ -81,20 +80,6 @@ public class BoardService {
     }
 
 
-    private void setAmount(Page page, HttpServletRequest request, HttpServletResponse response) {
-        // 쿠키 조회 : HttpServletRequest request 필요
-        // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
-        // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
-        Cookie cookie = new Cookie("amount", String.valueOf(page.getAmount()));
-        // 2. 쿠키 수명 설정(초) 초에 곱셈 수식으로 표현 가능 1시간 = 60*60
-        cookie.setMaxAge(60*60*24);
-        // 3. 쿠키 작동 범위
-        cookie.setPath("/board/list");
-        // 4. 클라이언트에 쿠키 전송/수정 : HttpServletResponse response 필요
-        response.addCookie(cookie);
-
-
-    }
 
     private void processConverting(List<Board> boardList) {
         for (Board b : boardList) {
