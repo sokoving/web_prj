@@ -36,13 +36,15 @@ public class BoardController {
 
     // 게시물 목록 요청
     @GetMapping("/list")
-    public String list(Model model, Page page){
+    public String list(Model model, Page page, HttpServletRequest request,  HttpServletResponse response){
         log.info("controller request /board/list GET!");
-        Map<String, Object> boardMap = boardService.findAllService(page);
+        Map<String, Object> boardMap = boardService.findAllService(page, request, response);
         log.debug("return data - {}", boardMap);
+        log.info("controller /list?amount = {}", page.getAmount());
 
         // 페이지 정보 생성
         PageMaker pm = new PageMaker(page, (Integer) boardMap.get("tc"));
+
 
         model.addAttribute("bList", boardMap.get("bList"));
         model.addAttribute("pm", pm);
@@ -52,7 +54,9 @@ public class BoardController {
 
     // 게시물 상세 조회 요청
     @GetMapping("/content/{boardNo}")
-    public String content(Long boardNo, Model model, HttpServletResponse response, HttpServletRequest request){
+    public String content(@PathVariable Long boardNo, Model model
+            , HttpServletResponse response, HttpServletRequest request
+            , @ModelAttribute("p") Page page){
         log.info("controller request /board/content GET! - {}", boardNo);
         Board board = boardService.findOneService(boardNo, response, request);
         log.info("return data - {}", board);

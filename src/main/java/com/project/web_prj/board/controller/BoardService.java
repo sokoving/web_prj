@@ -13,7 +13,6 @@ import org.springframework.web.util.WebUtils;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -34,6 +33,8 @@ public class BoardService {
         return repository.save(board);
     }
 
+
+
     // 게시물 전체 조회 요청 중간 처리
     public List<Board> findAllService() {
         log.info("findAll service start");
@@ -45,7 +46,7 @@ public class BoardService {
         return boardList;
     }
 
-
+    /*
     // 게시물 전체 조회 요청 중간 처리 with paging
     public Map<String, Object> findAllService(Page page) {
         log.info("findAll service start");
@@ -60,6 +61,39 @@ public class BoardService {
         findDataMap.put("tc", repository.getTotalCount());
 
         return findDataMap;
+    }*/
+
+    // 게시물 전체 조회 요청 중간 처리 with paging, amount cookie
+    public Map<String, Object> findAllService(Page page, HttpServletRequest request, HttpServletResponse response) {
+        log.info("findAll service start");
+
+        Map<String, Object> findDataMap = new HashMap<>();
+        List<Board> boardList = repository.findAll(page);
+
+        // 목록 중간 데이터처리
+        processConverting(boardList);
+        setAmount(page, request, response);
+
+        findDataMap.put("bList", boardList);
+        findDataMap.put("tc", repository.getTotalCount());
+
+        return findDataMap;
+    }
+
+
+    private void setAmount(Page page, HttpServletRequest request, HttpServletResponse response) {
+        // 쿠키 조회 : HttpServletRequest request 필요
+        // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
+        Cookie cookie = new Cookie("amount", String.valueOf(page.getAmount()));
+        // 2. 쿠키 수명 설정(초) 초에 곱셈 수식으로 표현 가능 1시간 = 60*60
+        cookie.setMaxAge(60*60*24);
+        // 3. 쿠키 작동 범위
+        cookie.setPath("/board/list");
+        // 4. 클라이언트에 쿠키 전송/수정 : HttpServletResponse response 필요
+        response.addCookie(cookie);
+
+
     }
 
     private void processConverting(List<Board> boardList) {
@@ -103,9 +137,9 @@ public class BoardService {
 
     private void makeViewCount(Long boardNo, HttpServletResponse response, HttpServletRequest request) {
         // 쿠키 조회 : HttpServletRequest request 필요
-            // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
+        // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
         Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
-        if(foundCookie == null){
+        if (foundCookie == null) {
             repository.upViewCount(boardNo);
 
             // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
@@ -131,8 +165,6 @@ public class BoardService {
         log.info("modify service start - {}", board);
         return repository.modify(board);
     }
-
-
 
 
 }

@@ -69,7 +69,7 @@
 
             </div>
 
-            <div class="btn-group btn-group-lg custom-btn-group" role="group" >
+            <div class="btn-group btn-group-lg custom-btn-group" role="group">
                 <button id="mod-btn" type="button" class="btn btn-warning">수정</button>
                 <button id="del-btn" type="button" class="btn btn-danger">삭제</button>
                 <button id="list-btn" type="button" class="btn btn-dark">목록</button>
@@ -83,8 +83,7 @@
 
 
     <script>
-        const [$modBtn, $delBtn, $listBtn] 
-           = [...document.querySelector('div[role=group]').children];
+        const [$modBtn, $delBtn, $listBtn] = [...document.querySelector('div[role=group]').children];
 
         // const $modBtn = document.getElementById('mod-btn');
         //수정버튼
@@ -94,14 +93,14 @@
 
         //삭제버튼
         $delBtn.onclick = e => {
-            if(!confirm('정말 삭제하시겠습니까?')) {
+            if (!confirm('정말 삭제하시겠습니까?')) {
                 return;
             }
             location.href = '/board/delete?boardNo=${b.boardNo}';
         };
         //목록버튼
         $listBtn.onclick = e => {
-            location.href = '/board/list';
+            location.href = '/board/list?pageNum=${p.pageNum}&amount=${p.amount}';
         };
     </script>
 

@@ -11,14 +11,25 @@
 
 # gradle 설정을 인텔리제이로 바꾸면 자바가 17버전으로 바뀌어서 서버 실행 안 됨...
 
+# @Transactional
+- 메서드를 트랜젝션 단위로 묶어 실행에 실패하면 이전 코드 롤백
 
+----------------------------------------------------------------------------------
+# jsp에서 모델 값 받기 받기
+1. controller에서 model 값 세팅하기
+- model.addAttribute("pm", pm);
+2. jsp에서 값 사용하기
+- const pageNum = '${pm.page.pageNum}' : getter 있으면
+- const pageNum = '${pm.page.getPageNum}' : getter 없으면
 
+----------------------------------------------------------------------------------
 # db에서 받은 데이터를 포매팅해 보여주기
 - 도메인에 커스텀 데이터 필드를 만들어서 세팅하고 값 받아오기
 ``` class Board
     private String shortTitle; // 줄임 제목
     private String prettierDate; // 변경된 날짜 포맷 문자열
 ```
+----------------------------------------------------------------------------------
 
 # 부트스트랩 사용하기
 1. 이미 쓰고 있으면 버전 확인하기
@@ -27,7 +38,13 @@
 2. 새로 쓸 거면 head에 cnd 복붙
 3. 쓸 디자인 선택하고 태그 복붙
 4. 디자인을 커스텀하려면 !impotant 붙이는 게 좋음
+----------------------------------------------------------------------------------
+# data 속성 이용하기
+- 태그에 데이터 속성 값 입력 : \<li data-page-num="${n}">
+- js에서 데이터 속성 이용 : if (curPageNum === $li.dataset.pageNum)
 
+
+----------------------------------------------------------------------------------
 # 리스트 페이징
 - 게시글 일부분만 보여주기
 ## 페이징 쿼리
@@ -48,8 +65,35 @@ WHERE rn BETWEEN 11 AND 20;
 ## class Page
 ## 목록 처리하는 메서드들에 page 파라메터를 받고 적용하게 만들기 
 
+----------------------------------------------------------------------------------
+# 페이지 이동 시에 파라미터 같이 넘기기
+## 게시물 줄 수 설정
+- 줄 수 설정하면 페이지 개수도 변하기 때문에 첫 페이지로 이동시키는 게 좋다 
+1. /list 컨트롤러에 amount 파라미터 넘기기
+ > href="/board/list?amount=10"
+2. 페이지 이동 때 amount도 같이 넘기기
+ > href="/board/list?pageNum=${n}&amount=${pm.page.amount}"
 
+## 글을 보고 목록 버튼 누르면 봤던 게시글 페이지로 돌아가기 
+1. 상세요청 이벤트 걸 때 경로에 pageNum과 amount 묻히기
+ > location.href = '/board/content/' + bn + "?pageNum=${pm.page.pageNum}&amount=${pm.page.amount}";
+2. 상세요청 처리하는 컨트롤러에서 page 파라미터 받고 모델에 넣어 상세 페이지로 이동
+- 파라미터로 받은 인수를 바로 모델에 넣기
+ > @ModelAttribute("p") Page page
+```
+   @GetMapping("/content/{boardNo}")
+    public String content(@PathVariable Long boardNo, Model model
+            , HttpServletResponse response, HttpServletRequest request
+            , @ModelAttribute("p") Page page){
+        Board board = boardService.findOneService(boardNo, response, request);
+        model.addAttribute("b", board);
+        return "board/board-detail";
+    }
+```
+3. 상세 페이지에서 목록으로 돌아가는 경로에 page 파라미터 묻히기
+> location.href = '/board/list?pageNum=${p.pageNum}&amount=${p.amount}';
 
+----------------------------------------------------------------------------------
 # 수정 완료하고 다시 페이지로 리다이렉트하기
 > return flag? "redirect:/board/content/"+board.getBoardNo() : "redirect:/";
 ## 리다이렉트할 때 정보 보내기
@@ -65,13 +109,10 @@ WHERE rn BETWEEN 11 AND 20;
  - mode.addAttribute("msg", "reg-success");
 
 
+----------------------------------------------------------------------------------
+# 페이지가 새로고침돼도 이전 요청 받아오기
+- 한 브라우저당 시간당 한 번만 올라가게 해 조회수 무제한 올라가는 걸 막는다
 
-
-# @Transactional
-- 메서드를 트랜젝션 단위로 묶어 실행에 실패하면 이전 코드 롤백
-
-# 조회수 무제한 올라가는 걸 막는 방법
-- 한 브라우저당 시간당 한 번만 올라가게 한다
 ## 프로토콜의 무상태성
 - http와 서버는 어떤 상태인 걸 기억하지 못 한다
  + 서버가 쿠키를 클라이언트에게 건네주고 그 쿠키를 보고 상태를 확인한다
@@ -95,7 +136,7 @@ WHERE rn BETWEEN 11 AND 20;
         }
     }
 ```
-----------------------------------------
+----------------------------------------------------------------------------------
 
 # 1. 프로젝트 시작, 스프링 설정 종합편
 ## 1. https://start.spring.io/
@@ -249,7 +290,7 @@ public class HomeController {
  + 절대경로 : src="/img/logo.png" > 파일 위치를 옮겨도 경로 유지 
 
 ### 1-7 테이블 생성하기
-```roomsql
+```
 drop SEQUENCE seq_tbl_board;
 DROP TABLE tbl_board;
 
