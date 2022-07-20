@@ -17,6 +17,7 @@ class BoardServiceTest {
     @Autowired
     BoardService service;
 
+/*
     @Test
     @DisplayName("게시물 전체 조회 중간 처리 결과 리스트가 반환되어야 한다")
     void findAllServiceTest(){
@@ -28,6 +29,7 @@ class BoardServiceTest {
         assertEquals(300, boardList.size());
 
     }
+*/
 
 
 

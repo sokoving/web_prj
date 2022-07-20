@@ -56,20 +56,31 @@
     <!--  동적 SQL 작성법  -->
     <select id="findAll" resultMap="boardMap">
         SELECT  *
-        FROM (SELECT ROWNUM rn, v_board.*
-                 FROM (
-                        SELECT *
-                        FROM tbl_board
-                        ORDER BY board_no DESC
-                        ) v_board)
+        FROM (SELECT ROWNUM rn, v_board.* 
+              FROM (
+                    SELECT *
+                    FROM tbl_board
+                    ORDER BY board_no DESC
+                    ) v_board)
         WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1
-            AND #{pageNum} * #{amount}
+                 AND #{pageNum} * #{amount}
     </select>
 
     <select id="findOne" resultMap="boardMap">
         SELECT * FROM tbl_board
         WHERE board_no = #{boardNo}
     </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM tbl_board
+    </select>
+
+    <update id="upViewCount">
+        UPDATE tbl_board
+        SET view_cnt = view_cnt + 1
+        WHERE board_no=#{boardNo}
+    </update>
 
 
 

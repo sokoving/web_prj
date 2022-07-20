@@ -1,7 +1,7 @@
 package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
-import com.project.web_prj.board.repository.BoardRepository;
+import com.project.web_prj.board.repository.BoardMapper;
 import com.project.web_prj.common.paging.Page;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -25,26 +25,28 @@ import java.util.Map;
 public class BoardService {
 
     @Autowired
-    private final BoardRepository repository;
+    private final BoardMapper mapper;
 
     // 게시물 등록 요청 중간 처리
     public boolean saveService(Board board) {
         log.info("save service start - {}", board);
-        return repository.save(board);
+        return mapper.save(board);
     }
 
 
+/*
 
     // 게시물 전체 조회 요청 중간 처리
     public List<Board> findAllService() {
         log.info("findAll service start");
-        List<Board> boardList = repository.findAll();
+        List<Board> boardList = mapper.findAll();
 
         // 목록 중간 데이터처리
         processConverting(boardList);
 
         return boardList;
     }
+*/
 
     /*
     // 게시물 전체 조회 요청 중간 처리 with paging
@@ -68,13 +70,13 @@ public class BoardService {
         log.info("findAll service start");
 
         Map<String, Object> findDataMap = new HashMap<>();
-        List<Board> boardList = repository.findAll(page);
+        List<Board> boardList = mapper.findAll(page);
 
         // 목록 중간 데이터처리
         processConverting(boardList);
 
         findDataMap.put("bList", boardList);
-        findDataMap.put("tc", repository.getTotalCount());
+        findDataMap.put("tc", mapper.getTotalCount());
 
         return findDataMap;
     }
@@ -111,7 +113,7 @@ public class BoardService {
     @Transactional
     public Board findOneService(Long boardNo, HttpServletResponse response, HttpServletRequest request) {
         log.info("findOne service start - {}", boardNo);
-        Board board = repository.findOne(boardNo);
+        Board board = mapper.findOne(boardNo);
 
         // 해당 게시물 번호에 해당하는 쿠키가 있는지 확인
         // 쿠키가 없으면 조회수를 상승시켜주고 쿠키를 만들어서 클라이언트에 전송
@@ -125,7 +127,7 @@ public class BoardService {
         // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
         Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
         if (foundCookie == null) {
-            repository.upViewCount(boardNo);
+            mapper.upViewCount(boardNo);
 
             // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
             Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));
@@ -142,13 +144,13 @@ public class BoardService {
     // 게시물 삭제 요청 중간 처리
     public boolean removeService(Long boardNo) {
         log.info("remove service start - {}", boardNo);
-        return repository.remove(boardNo);
+        return mapper.remove(boardNo);
     }
 
     // 게시물 수정 요청 중간 처리
     public boolean modifyService(Board board) {
         log.info("modify service start - {}", board);
-        return repository.modify(board);
+        return mapper.modify(board);
     }
 
 
