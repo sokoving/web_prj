@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper태그는 sql을 매핑할때 사용하는 태그
+     namespace속성에는 사용할 인터페이스의 풀 패키지경로 + 인터페이스이름
+  -->
+<mapper namespace="com.project.web_prj.board.repository.BoardMapper">
+
+    <!-- 게시글 등록 SQL 작성 :  id속성에는 추상메서드 이름  -->
+    <insert id="save">
+        INSERT INTO tbl_board
+        (board_no, writer, title, content)
+        VALUES (seq_tbl_board.nextval, #{writer}, #{title}, #{content})
+    </insert>
+
+    <!-- 게시글 정보 삭제 -->
+    <delete id="remove">
+        DELETE FROM tbl_board
+        WHERE board_no = #{boardNo}
+    </delete>
+
+    <!--  게시글 정보 수정  -->
+    <update id="modify">
+        UPDATE tbl_board
+        SET writer = #{writer}, title = #{title}, content = #{content}
+        WHERE board_no = #{boardNo}
+    </update>
+
+    <!--
+        단일 컬럼이면 resultType 속성으로 데이터 타입 명시
+            <select id="findAll" resultType="int">
+                SELECT price FROM tbl_product
+                ORDER BY price DESC
+            </select>
+
+        다중 컬럼 조회 시에는 resultMap 속성으로 데이터를 개체 처리
+    -->
+    <!--
+        reultMap 설정  :  DB 컬럼과 자바 클래스 필드명의 차이를 지정
+             DB 컬럼과 필드명이 완벽히 일치하면 설정하지 않아도 되지만
+             자바에 스네이크 케이스를 쓰면 스프링에서 처리하다 오류가 날 수 있고
+             DB에 캐멀 케이스를 쓰면 대소문자 구분이 되지 않기 때문에 ResultMap 설정을 해야 한다
+                    모든 셀렉트에서 이 설정을 사용할 수 있다
+    -->
+    <resultMap id="boardMap" type="com.project.web_prj.board.domain.Board">
+        <!--   property 속성에는 자바 필드명, column에는 Db 컬럼명    -->
+        <result property="boardNo" column="BOARD_NO"/>
+        <result property="viewCnt" column="VIEW_CNT"/>
+        <result property="regDate" column="REG_DATE"/>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="boardMap">
+        SELECT  *
+        FROM (SELECT ROWNUM rn, v_board.*
+              FROM (
+                    SELECT *
+                    FROM tbl_board
+                    ORDER BY board_no DESC
+                    ) v_board)
+        WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1
+                 AND #{pageNum} * #{amount}
+    </select>
+
+    <select id="findAll2" resultMap="boardMap">
+        SELECT  *
+        FROM (
+                SELECT ROWNUM rn, v_board.*
+                FROM (
+                        SELECT *
+                        FROM tbl_board
+        <if test="type == 'title'">WHERE title LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'writer'">WHERE writer LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'content'">WHERE content LIKE '%' || #{keyword} || '%'</if>
+        <if test="type == 'tc'">
+                                WHERE title LIKE '%' || #{keyword} || '%'
+                                OR content LIKE '%' || #{keyword} || '%'
+        </if>
+                        ORDER BY board_no DESC
+                        ) v_board
+            )
+        WHERE rn BETWEEN (#{pageNum} - 1) * #{amount} + 1 AND (#{pageNum} * #{amount})
+    </select>
+
+    <select id="findOne" resultMap="boardMap">
+        SELECT * FROM tbl_board
+        WHERE board_no = #{boardNo}
+    </select>
+
+    <select id="getTotalCount" resultType="int">
+        SELECT COUNT(*)
+        FROM (
+            SELECT *
+            FROM tbl_board
+            <if test="type == 'title'">WHERE title LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'writer'">WHERE writer LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'content'">WHERE content LIKE '%' || #{keyword} || '%'</if>
+            <if test="type == 'tc'">
+                WHERE title LIKE '%' || #{keyword} || '%'
+                OR content LIKE '%' || #{keyword} || '%'
+            </if>
+            ORDER BY board_no DESC
+        )
+    </select>
+
+    <update id="upViewCount">
+        UPDATE tbl_board
+        SET view_cnt = view_cnt + 1
+        WHERE board_no=#{boardNo}
+    </update>
+
+
+
+</mapper>

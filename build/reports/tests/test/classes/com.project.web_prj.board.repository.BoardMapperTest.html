@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - BoardMapperTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>BoardMapperTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.project.web_prj.board.repository.html">com.project.web_prj.board.repository</a> &gt; BoardMapperTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.557s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">제목으로 검색된 목록을 조회해야 한다</td>
+<td class="success">serachByTitleTest()</td>
+<td class="success">0.557s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>17:16:37.470 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:16:37.480 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:16:37.512 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.project.web_prj.board.repository.BoardMapperTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:16:37.525 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.project.web_prj.board.repository.BoardMapperTest], using SpringBootContextLoader
+17:16:37.531 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.project.web_prj.board.repository.BoardMapperTest]: class path resource [com/project/web_prj/board/repository/BoardMapperTest-context.xml] does not exist
+17:16:37.532 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.project.web_prj.board.repository.BoardMapperTest]: class path resource [com/project/web_prj/board/repository/BoardMapperTestContext.groovy] does not exist
+17:16:37.532 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.project.web_prj.board.repository.BoardMapperTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:16:37.533 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.project.web_prj.board.repository.BoardMapperTest]: BoardMapperTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:16:37.578 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.project.web_prj.board.repository.BoardMapperTest]
+17:16:37.644 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\YEOWOON\web_prj\build\classes\java\main\com\project\web_prj\WebPrjApplication.class]
+17:16:37.646 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.project.web_prj.WebPrjApplication for test class com.project.web_prj.board.repository.BoardMapperTest
+17:16:37.752 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.project.web_prj.board.repository.BoardMapperTest]: using defaults.
+17:16:37.752 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+17:16:37.768 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1bdaa23d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@79f227a9, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6ca320ab, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@50d68830, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1e53135d, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7674a051, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3a7704c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6754ef00, org.springframework.test.context.event.EventPublishingTestExecutionListener@619bd14c, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@323e8306, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@a23a01d, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4acf72b6, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7561db12, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3301500b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@24b52d3e]
+17:16:37.772 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@78e16155 testClass = BoardMapperTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@54a3ab8f testClass = BoardMapperTest, locations = '{}', classes = '{class com.project.web_prj.WebPrjApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@7b324585, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4cc6fa2a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@590c73d3, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@435871cb, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@13c3c1e1, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1f760b47], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; true]], class annotated with @DirtiesContext [false] with mode [null].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.1)
+
+2022-07-20 17:16:38.109  INFO 12704 --- [    Test worker] c.p.w.board.repository.BoardMapperTest   : Starting BoardMapperTest using Java 11.0.15 on DESKTOP-5JE210C with PID 12704 (started by com in C:\YEOWOON\web_prj)
+2022-07-20 17:16:38.111  INFO 12704 --- [    Test worker] c.p.w.board.repository.BoardMapperTest   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2022-07-20 17:16:38.772  INFO 12704 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2022-07-20 17:16:38.788  INFO 12704 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
+2022-07-20 17:16:39.259  INFO 12704 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-07-20 17:16:39.267  WARN 12704 --- [    Test worker] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+2022-07-20 17:16:39.473  INFO 12704 --- [    Test worker] com.zaxxer.hikari.pool.PoolBase          : HikariPool-1 - Driver does not support get/set network timeout for connections. (Receiver class oracle.jdbc.driver.T4CConnection does not define or inherit an implementation of the resolved method abstract getNetworkTimeout()I of interface java.sql.Connection.)
+2022-07-20 17:16:39.477  INFO 12704 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-07-20 17:16:40.294  INFO 12704 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-07-20 17:16:40.785  INFO 12704 --- [    Test worker] c.p.w.board.repository.BoardMapperTest   : Started BoardMapperTest in 2.979 seconds (JVM running for 4.154)
+Board(boardNo=291, writer=길동이291, title=제목291, content=안녕하세요요요요요요요~~291, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=281, writer=길동이281, title=제목281, content=안녕하세요요요요요요요~~281, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=271, writer=길동이271, title=제목271, content=안녕하세요요요요요요요~~271, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=261, writer=길동이261, title=제목261, content=안녕하세요요요요요요요~~261, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=251, writer=길동이251, title=제목251, content=안녕하세요요요요요요요~~251, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=241, writer=길동이241, title=제목241, content=안녕하세요요요요요요요~~241, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=231, writer=길동이231, title=제목231, content=안녕하세요요요요요요요~~231, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=221, writer=길동이221, title=제목221, content=안녕하세요요요요요요요~~221, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=219, writer=길동이219, title=제목219, content=안녕하세요요요요요요요~~219, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+Board(boardNo=218, writer=길동이218, title=제목218, content=안녕하세요요요요요요요~~218, viewCnt=0, regDate=2022-07-18 14:13:58.0, shortTitle=null, prettierDate=null)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.4.1</a> at 2022. 7. 20. 오후 5:16:41</p>
+</div>
+</div>
+</body>
+</html>
