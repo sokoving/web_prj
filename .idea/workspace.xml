@@ -5,79 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0720 search, new">
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/HomeController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/ServletInitializer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/WebPrjApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/controller/BoardController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/controller/BoardService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/domain/Board.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/repository/BoardMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/repository/BoardRepository.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/repository/BoardRepositoryImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/common/paging/Page.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/common/paging/PageMaker.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/common/search/Search.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/config/DataBaseConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/WebPrjApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/board/controller/BoardServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/board/repository/BoardMapperTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/board/repository/BoardRepositoryImplTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/common/paging/PageMakerTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/com.project.web_prj.board.repository.BoardMapperTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/base-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/js/report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/com.project.web_prj.board.repository.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/com/project/web_prj/board/repository/BoardMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/animate.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/css/slick.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/ddl/tbl_board.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/contact.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/logo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/partner8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/project1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/project2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/project3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/project4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/img/visual6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/gnb-event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/scroll-event.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/scrolla.jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/js/slick.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/resources/main/static/siteicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/test-results/test/TEST-com.project.web_prj.board.repository.BoardMapperTest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658370198030</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="0720 search, new">
+      <created>1658387944984</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1658387944984</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -20,7 +20,7 @@ class BoardMapperTest {
     @Autowired
     BoardMapper mapper;
 
-    @Test
+/*    @Test
     @DisplayName("제목으로 검색된 목록을 조회해야 한다")
     void serachByTitleTest(){
         Search search = new Search(new Page(1, 10), "writer", "1");
@@ -28,7 +28,7 @@ class BoardMapperTest {
         for (Board board : all2) {
             System.out.println(board);
         }
-    }
+    }*/
 
     @Test
     @DisplayName("db에 게시글이 등록돼야 한다")
