@@ -19,6 +19,33 @@
             border-radius: 10px;
         }
 
+        /* 검색창 */
+        .board-list .top-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .board-list .top-section .search {
+            flex: 4;
+        }
+
+        .board-list .top-section .amount {
+            flex: 4;
+        }
+
+        .board-list .top-section .search form {
+            display: flex;
+        }
+
+        .board-list .top-section .search form #search-type {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .board-list .top-section .search form input[name=keyword] {
+            flex: 3;
+        }
+
         /* 목록 개수별 보기 스타일 */
         .board-list .amount {
             display: flex;
@@ -30,6 +57,7 @@
             width: 8%;
             margin-right: 10px;
         }
+
         .board-list .amount li a {
             width: 100%;
         }
@@ -39,6 +67,11 @@
         header {
             background: #222;
             border-bottom: 1px solid #2c2c2c;
+        }
+
+        span.badge.rounded-pill {
+            margin-left: 10px;
+            font-size: 0.75em;
         }
 
 
@@ -79,11 +112,32 @@
 
         <div class="board-list">
 
-            <ul class="amount">
-                <li><a class="btn btn-danger" href="/board/list?amount=10">10</a></li>
-                <li><a class="btn btn-danger" href="/board/list?amount=20">20</a></li>
-                <li><a class="btn btn-danger" href="/board/list?amount=30">30</a></li>
-            </ul>
+            <div class="top-section">
+                <!-- 검색창 영역 -->
+                <div class="search">
+                    <form action="/board/list" method="get">
+                        <select class="form-select" name="type" id="search-type">
+                            <option value="title">제목</option>
+                            <option value="content">내용</option>
+                            <option value="writer">작성자</option>
+                            <option value="tc">제목+내용</option>
+                        </select>
+
+                        <input type="text" class="form-controll" name="keyword" value="${search.keyword}">
+                        <button class="btn btn-primary search-btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+
+
+                <!-- 목록 개수별 보기 영역 -->
+                <ul class="amount">
+                    <li><a class="btn btn-danger" href="/board/list?amount=10">10</a></li>
+                    <li><a class="btn btn-danger" href="/board/list?amount=20">20</a></li>
+                    <li><a class="btn btn-danger" href="/board/list?amount=30">30</a></li>
+                </ul>
+            </div>
 
             <table class="table table-dark table-striped table-hover articles">
                 <tr>
@@ -98,7 +152,13 @@
                     <tr>
                         <td>${b.boardNo}</td>
                         <td>${b.writer}</td>
-                        <td title="${b.title}">${b.shortTitle}</td>
+
+                        <td title="${b.title}">
+                            ${b.shortTitle}
+                            <c:if test="${b.newArticle}">
+                                <span class="badge rounded-pill bg-danger">new</span>
+                            </c:if>
+                        </td>
                         <td>${b.viewCnt}</td>
                         <td>${b.prettierDate}</td>
                     </tr>
@@ -114,19 +174,21 @@
 
                         <c:if test="${pm.prev}">
                             <li class="page-item"><a class="page-link"
-                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${pm.search.amount}">
+                                    href="/board/list?pageNum=${pm.beginPage - 1}&amount=${search.amount}&type=${search.type}&keyword=${search.keyword}">
                                     prev</a></li>
                         </c:if>
 
                         <c:forEach var="n" begin="${pm.beginPage}" end="${pm.endPage}" step="1">
                             <li data-page-num="${n}" class="page-item">
-                                <a class="page-link" href="/board/list?pageNum=${n}&amount=${pm.search.amount}">${n}</a>
+                                <a class="page-link"
+                                    href="/board/list?pageNum=${n}&amount=${search.amount}&type=${search.type}&keyword=${search.keyword}">${n}</a>
                             </li>
                         </c:forEach>
 
                         <c:if test="${pm.next}">
                             <li class="page-item"><a class="page-link"
-                                    href="/board/list?pageNum=${pm.endPage + 1}&amount=${pm.search.amount}">next</a></li>
+                                    href="/board/list?pageNum=${pm.endPage + 1}&amount=${search.amount}&type=${search.type}&keyword=${search.keyword}">next</a>
+                            </li>
                         </c:if>
 
                     </ul>
@@ -169,7 +231,8 @@
                 let bn = e.target.parentElement.firstElementChild.textContent;
                 console.log('글번호: ' + bn);
 
-                location.href = '/board/content/' + bn + "?pageNum=${pm.search.pageNum}&amount=${pm.search.amount}";
+                location.href = '/board/content/' + bn +
+                    "?pageNum=${pm.search.pageNum}&amount=${pm.search.amount}&type=${search.type}&keyword=${search.keyword}";
             });
         }
 
@@ -194,15 +257,28 @@
 
         }
 
+        // 옵션 태그 고정
+        function fixSearchOption() {
+            const $select = document.getElementById('search-type');
+
+            for (let $opt of [...$select.children]) {
+                if ($opt.value === '${search.type}') {
+                    $opt.setAttribute('selected', 'selected')
+                    break;
+                }
+            }
+
+        }
+
 
         (function () {
 
             alertServerMessage();
             detailEvent();
             appendPageActive();
+            fixSearchOption()
 
         })();
-
     </script>
 
 </body>

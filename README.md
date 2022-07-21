@@ -43,6 +43,34 @@
 - 태그에 데이터 속성 값 입력 : \<li data-page-num="${n}">
 - js에서 데이터 속성 이용 : if (curPageNum === $li.dataset.pageNum)
 
+----------------------------------------------------------------------------------
+# 시간 처리
+## 1시간 이내 작성 게시글에 new 띄우기
+```class Board
+private boolean newArticle; // 신규 게시물
+```
+``` BoardService
+    private void checkNewArticle(Board b) {
+        // 게시물의 작성일자와 현재 시간을 대조
+        Long regDateTime = b.getRegDate().getTime(); // 게시물의 작성일자 가져오기
+        long newTime = System.currentTimeMillis(); // 현재 시간 얻기(밀리초)
+        long diff = newTime - regDateTime; // 현재시간 - 작성시간
+        long limitTime = 60*5*1000; // 신규 게시글 제한시간
+
+        if (diff < limitTime){ b.setNewArticle(true);}
+    }
+```
+```board-list.jsp
+        <c:if test="${b.newArticle}">
+            <span class="badge rounded-pill bg-danger">new</span>
+        </c:if>
+```
+----------------------------------------------------------------------------------
+
+
+# 검색 기능 만들기
+우어어엉...
+
 
 ----------------------------------------------------------------------------------
 # 리스트 페이징

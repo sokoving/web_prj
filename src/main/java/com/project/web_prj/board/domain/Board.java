@@ -21,6 +21,7 @@ public class Board {
     // 커스텀 데이터 필드
     private String shortTitle; // 줄임 제목
     private String prettierDate; // 변경된 날짜 포맷 문자열
+    private boolean newArticle; // 신규 게시물
 
     public Board(ResultSet rs) throws SQLException {
         this.boardNo = rs.getLong("board_no");

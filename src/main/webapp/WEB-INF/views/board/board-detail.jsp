@@ -100,7 +100,7 @@
         };
         //목록버튼
         $listBtn.onclick = e => {
-            location.href = '/board/list?pageNum=${p.pageNum}&amount=${p.amount}';
+            location.href = '/board/list?pageNum=${p.pageNum}&amount=${p.amount}&type=${search.type}&keyword=${search.keyword}';
         };
     </script>
 

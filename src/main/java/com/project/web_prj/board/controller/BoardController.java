@@ -37,7 +37,7 @@ public class BoardController {
 
     // 게시물 목록 요청
     @GetMapping("/list")
-    public String list(Model model, Search search){
+    public String list(Model model, @ModelAttribute Search search){
         log.info("controller request /board/list GET! - search: {}", search);
 
         Map<String, Object> boardMap = boardService.findAllService(search);
@@ -47,7 +47,7 @@ public class BoardController {
         PageMaker pm = new PageMaker(
                 new Search(search.getPageNum(), search.getAmount(), search.getType(), search.getKeyword())
                 , (Integer) boardMap.get("tc"));
-        log.info("pmmmm : {}", pm);
+        log.debug("pm : {}", pm);
 
 
         model.addAttribute("bList", boardMap.get("bList"));
