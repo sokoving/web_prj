@@ -5,8 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0720 search, new">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/reply/domain/Reply.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/reply/repository/ReplyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/reply/service/ReplyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/project/web_prj/reply/repository/ReplyMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/reply/repository/ReplyMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/project/web_prj/board/repository/BoardMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/controller/BoardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/controller/BoardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/domain/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/project/web_prj/board/domain/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/board/repository/BoardMapperTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/board/repository/BoardMapperTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/common/paging/PageMakerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/com/project/web_prj/common/paging/PageMakerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/com.project.web_prj.board.repository.BoardMapperTest.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/com.project.web_prj.board.repository.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-com.project.web_prj.board.repository.BoardMapperTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/controller/BoardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/board/domain/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/paging/PageMaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/project/web_prj/common/paging/PageMaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/board-list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +82,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Kotlin Class" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
@@ -76,7 +107,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "C:/YEOWOON/mybooks",
+    "last_opened_file_path": "C:/YEOWOON/web_prj",
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
@@ -95,6 +126,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.project.web_prj.reply.repository" />
       <recent name="com.project.web_prj.board.repository" />
       <recent name="com.project.web_prj.common.paging" />
       <recent name="com.project.web_prj.board.controller" />
@@ -117,7 +149,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BoardMapperTest.findOneTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyMapperTest.findAllTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -130,7 +162,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.findOneTest&quot;" />
+            <option value="&quot;com.project.web_prj.reply.repository.ReplyMapperTest.findAllTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -140,7 +172,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoardMapperTest.removeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyMapperTest.findOneTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -153,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.removeTest&quot;" />
+            <option value="&quot;com.project.web_prj.reply.repository.ReplyMapperTest.findOneTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -163,7 +195,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoardMapperTest.saveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyMapperTest.modifyTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -176,7 +208,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.saveTest&quot;" />
+            <option value="&quot;com.project.web_prj.reply.repository.ReplyMapperTest.modifyTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -186,7 +218,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="BoardMapperTest.serachByTitleTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ReplyMapperTest.saveTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -199,7 +231,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.project.web_prj.board.repository.BoardMapperTest.serachByTitleTest&quot;" />
+            <option value="&quot;com.project.web_prj.reply.repository.ReplyMapperTest.saveTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -211,11 +243,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.BoardMapperTest.serachByTitleTest" />
-        <item itemvalue="Gradle.BoardMapperTest.saveTest" />
         <item itemvalue="애플리케이션.WebPrjApplication" />
-        <item itemvalue="Gradle.BoardMapperTest.removeTest" />
-        <item itemvalue="Gradle.BoardMapperTest.findOneTest" />
+        <item itemvalue="Gradle.ReplyMapperTest.findAllTest" />
+        <item itemvalue="Gradle.ReplyMapperTest.modifyTest" />
+        <item itemvalue="Gradle.ReplyMapperTest.findOneTest" />
+        <item itemvalue="Gradle.ReplyMapperTest.saveTest" />
       </list>
     </recent_temporary>
   </component>
@@ -361,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658387944984</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="0720 search, new">
+      <created>1658395648196</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1658395648196</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -2,8 +2,8 @@ package com.project.web_prj.board.controller;
 
 import com.project.web_prj.board.domain.Board;
 import com.project.web_prj.board.repository.BoardMapper;
-import com.project.web_prj.common.paging.Page;
 import com.project.web_prj.common.search.Search;
+import com.project.web_prj.reply.repository.ReplyMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -27,12 +26,13 @@ import java.util.Map;
 public class BoardService {
 
     @Autowired
-    private final BoardMapper mapper;
+    private final BoardMapper boardMapper;
+    private final ReplyMapper replyMapper;
 
     // 게시물 등록 요청 중간 처리
     public boolean saveService(Board board) {
         log.info("save service start - {}", board);
-        return mapper.save(board);
+        return boardMapper.save(board);
     }
 
 
@@ -74,13 +74,13 @@ public class BoardService {
         log.info("findAll service start");
 
         Map<String, Object> findDataMap = new HashMap<>();
-        List<Board> boardList = mapper.findAll2(search);
+        List<Board> boardList = boardMapper.findAll2(search);
 
         // 목록 중간 데이터처리
         processConverting(boardList);
 
         findDataMap.put("bList", boardList);
-        findDataMap.put("tc", mapper.getTotalCount(search));
+        findDataMap.put("tc", boardMapper.getTotalCount(search));
 
         return findDataMap;
     }
@@ -92,7 +92,12 @@ public class BoardService {
             convertDateFormat(b);
             substringTitle(b);
             checkNewArticle(b);
+            setReplyCount(b);
         }
+    }
+
+    private void setReplyCount(Board b) {
+        b.setReplyCount(replyMapper.getReplyCount(b.getBoardNo()));
     }
 
     // 신규 게시물 여부 처리
@@ -141,7 +146,7 @@ public class BoardService {
     @Transactional
     public Board findOneService(Long boardNo, HttpServletResponse response, HttpServletRequest request) {
         log.info("findOne service start - {}", boardNo);
-        Board board = mapper.findOne(boardNo);
+        Board board = boardMapper.findOne(boardNo);
 
         // 해당 게시물 번호에 해당하는 쿠키가 있는지 확인
         // 쿠키가 없으면 조회수를 상승시켜주고 쿠키를 만들어서 클라이언트에 전송
@@ -155,7 +160,7 @@ public class BoardService {
         // 해당 이름의 쿠키가 있으면 쿠키가 들어오고 없으면 null이 들어옴
         Cookie foundCookie = WebUtils.getCookie(request, "b" + boardNo);
         if (foundCookie == null) {
-            mapper.upViewCount(boardNo);
+            boardMapper.upViewCount(boardNo);
 
             // 1. 쿠키 생성(javax.servlet) new Coocke("쿠키 이름", "쿠키 값")
             Cookie cookie = new Cookie("b" + boardNo, String.valueOf(boardNo));
@@ -172,13 +177,13 @@ public class BoardService {
     // 게시물 삭제 요청 중간 처리
     public boolean removeService(Long boardNo) {
         log.info("remove service start - {}", boardNo);
-        return mapper.remove(boardNo);
+        return boardMapper.remove(boardNo);
     }
 
     // 게시물 수정 요청 중간 처리
     public boolean modifyService(Board board) {
         log.info("modify service start - {}", board);
-        return mapper.modify(board);
+        return boardMapper.modify(board);
     }
 
 

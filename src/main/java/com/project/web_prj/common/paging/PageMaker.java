@@ -19,11 +19,11 @@ public class PageMaker {
     // 이전 버튼 활성화 여부
     private boolean prev, next;
 
-    private Search search; // 현재 위치한 페이지 정보
+    private Page page; // 현재 위치한 페이지 정보
     private int totalCount; // 총 게시물 수
 
-    public PageMaker(Search search, int totalCount) {
-        this.search = search;
+    public PageMaker(Page page, int totalCount) {
+        this.page = page;
         this.totalCount = totalCount;
         makePageInfo();
     }
@@ -32,7 +32,7 @@ public class PageMaker {
     private void makePageInfo() {
         //1. endPage 계산
         // 올림처리 (현재 위치한 페이지번호 / 한 화면에 배치할 페이지수 ) *  한 화면에 배치할 페이지 수
-        this.endPage = (int) (Math.ceil(search.getPageNum() / (double)PAGE_COUNT) * PAGE_COUNT);
+        this.endPage = (int) (Math.ceil(page.getPageNum() / (double)PAGE_COUNT) * PAGE_COUNT);
 
         // 2. beginPage 계산
         this.beginPage = endPage - PAGE_COUNT + 1;
@@ -47,7 +47,7 @@ public class PageMaker {
          : 올림처리(총 게시물 수 / 한 페이지당 배치할 게시물 수)
 
          */
-        int realEnd = (int)(Math.ceil((double)totalCount/search.getAmount()));
+        int realEnd = (int)(Math.ceil((double)totalCount/page.getAmount()));
 
         // 그러면 끝 페이지 보정은 언제 일어나야 하는가?
         // 마지막 페이지 구간에서 일어날 수도 있고 아닐 수도 있다
