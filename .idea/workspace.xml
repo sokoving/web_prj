@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3bff4abc-e8b8-43f0-8dd8-4bf775a72c07" name="변경" comment="0728 PageMaker 생성자 변경 page&gt; search">
-      <change afterPath="$PROJECT_DIR$/댓글, 비동기.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NOTE/0801 모달로 댓글 수정.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NOTE/0801 파일 업로드.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NOTE/backup readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/댓글, 비동기.md" beforeDir="false" afterPath="$PROJECT_DIR$/NOTE/댓글, 비동기.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,25 +73,27 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/YEOWOON/spring_webprj4-master&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "E:/study/web_prj/NOTE",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.project.web_prj.board.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\study\web_prj\NOTE" />
       <recent name="C:\YEOWOON\web_prj\src\main\resources\static" />
       <recent name="C:\YEOWOON\web_prj\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\study\web_prj\NOTE" />
       <recent name="C:\YEOWOON\web_prj" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
